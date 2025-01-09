@@ -17,5 +17,11 @@ public class JamalsWords : MonoBehaviour
         Vector2 Jpos = transform.position;
         Jpos.x += JamalFarst;
         transform.position = Jpos;
+
+        Vector2 ScreenSpace = Camera.main.WorldToScreenPoint(Jpos);
+        if (ScreenSpace.x < 0 || ScreenSpace.x > Screen.width)
+        {
+            JamalFarst = JamalFarst * -1;
+        }
     }
 }
